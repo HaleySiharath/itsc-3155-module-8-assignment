@@ -1,4 +1,5 @@
-from flask import Flask, redirect, render_template
+
+from flask import Flask, redirect, render_template,request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
@@ -30,4 +31,12 @@ def create_movie():
 @app.get('/movies/search')
 def search_movies():
     # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+
+    title = request.args.get('title')
+    #movie = movie_repository_singleton.get_movie_by_title('Star Wars')
+    t1 = title
+    movie = movie_repository_singleton.get_movie_by_title(str(title))
+    
+
+    
+    return render_template('search_movies.html', search_active=True, movie = movie, t1 = t1)

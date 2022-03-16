@@ -5,5 +5,26 @@
 {% block body %}
 <h1 class="mb-5">Search Movie Ratings</h1>
 <p class="mb-3">Search for a movie rating below</p>
-<!-- TODO: Feature 3 -->
+<form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Movie Title", name = "title", id = title aria-label="Search", autocomplete="off">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+     <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Director</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>{{movie.title}}</td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.rating}}</td>
+          </tr>
+     <!-- TODO: Feature 3 -->
 {% endblock %}
